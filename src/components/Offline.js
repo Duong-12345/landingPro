@@ -112,9 +112,15 @@ export default function Offline(props) {
     }
   };
 
+  // const dataDepartment = useSelector(
+  //   (state) => state.departmentReducer.dataDepartment
+  // );
   const dataDepartment = useSelector(
     (state) => state.departmentReducer.dataDepartment.data
   );
+  // const dataProgram = useSelector(
+  //   (state) => state.programReducer.dataProgram
+  // );
   const dataProgram = useSelector(
     (state) => state.programReducer.dataProgram.data
   );

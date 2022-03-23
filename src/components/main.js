@@ -96,22 +96,22 @@ const Main = () => {
 
   const [submitted, setSubmitted] = useState(false);
   // const dataProvince = useSelector(
-  //   (state) => state.provinceReducer.dataProvince.data
+  //   (state) => state.provinceReducer.dataProvince
   // );
   const dataProvince = useSelector(
-    (state) => state.provinceReducer.dataProvince
+    (state) => state.provinceReducer.dataProvince.data
   );
   // const dataDistrict = useSelector(
-  //   (state) => state.districtReducer.dataDistrict.data
+  //   (state) => state.districtReducer.dataDistrict
   // );
   const dataDistrict = useSelector(
-    (state) => state.districtReducer.dataDistrict
+    (state) => state.districtReducer.dataDistrict.data
   );
   // const dataSchool = useSelector(
-  //   (state) => state.schoolReducer.dataSchool.data
+  //   (state) => state.schoolReducer.dataSchool
   // );
   const dataSchool = useSelector(
-    (state) => state.schoolReducer.dataSchool
+    (state) => state.schoolReducer.dataSchool.data
   );
   useEffect(() => {
     getProvince(dispatch);
@@ -169,8 +169,11 @@ const Main = () => {
     return on;
   };
   const handleProgram = (e) => {
+    console.log(e.target.checked);
+
     e.persist();
     if (!e.target.checked) {
+      console.log("0");
       let tmp = value.arrayProgram;
       let index = tmp.indexOf(e.target.value);
       if (index !== -1) {
@@ -414,7 +417,8 @@ const Main = () => {
               <div className="bottom_child_left">
                 <span className="bound_img_p">
                   <img
-                    src="./img/clock.png"
+                    // src="./img/clock.png"
+                    src="./img/clock.svg"
                     alt="logo1"
                     className="phone_icon"
                   ></img>
@@ -425,7 +429,8 @@ const Main = () => {
                 </span>
                 <span className="bound_img_p">
                   <img
-                    src="./img/address.png"
+                    // src="./img/address.png"
+                    src="./img/address.svg"
                     alt="logo1"
                     className="phone_icon"
                   ></img>
@@ -441,7 +446,8 @@ const Main = () => {
               <div className="bottom_child_left">
                 <span className="bound_img_p">
                   <img
-                    src="./img/clock.png"
+                    // src="./img/clock.png"
+                    src="./img/clock.svg"
                     alt="logo1"
                     className="phone_icon"
                   ></img>
@@ -449,7 +455,8 @@ const Main = () => {
                 </span>
                 <span className="bound_img_p">
                   <img
-                    src="./img/address.png"
+                    // src="./img/address.png"
+                    src="./img/address.svg"
                     alt="logo1"
                     className="phone_icon"
                   ></img>
@@ -463,11 +470,11 @@ const Main = () => {
             <b>Phòng Tuyển sinh và Truyền thông</b>
           </p>
           <span className="bound_img_p">
-            <img src="./img/phone.png" alt="logo1" className="phone_icon"></img>
+            <img src="./img/phone.svg" alt="logo1" className="phone_icon"></img>
             <p>0946.906.552 (Ms Hằng)</p>
           </span>
           <span className="bound_img_p">
-            <img src="./img/email.png" alt="logo1" className="phone_icon"></img>
+            <img src="./img/email.svg" alt="logo1" className="phone_icon"></img>
             <p>truyenthong@phenikaa-uni.edu.vn</p>
           </span>
 

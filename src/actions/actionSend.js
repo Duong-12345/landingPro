@@ -1,6 +1,6 @@
 const postData = async (data) => {
-  // const URL = "http://10.20.2.201:5000/registration";
-  const URL = "http://localhost:3001/api";
+  const URL = "http://10.20.2.201:5000/registration";
+  // const URL = "https://api-landing-pheni.herokuapp.com/api";
   // const URL = "https://615ab6234a360f0017a81212.mockapi.io/api/demo/Form";
   // console.log(JSON.stringify(data));
   return fetch(URL, {
@@ -9,14 +9,7 @@ const postData = async (data) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
-  })
-  .then((response) => Promise.all([response, response.json()]))
-  .then((data)=>{
-    console.log('success',data)
-  })
-  .catch((err)=>{
-    console.error('error', err)
-  })
+  }).then((response) => Promise.all([response, response.json()]));
 };
 
 export const postDataRequest = () => {
