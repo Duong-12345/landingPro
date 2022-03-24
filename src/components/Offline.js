@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import "react-calendar/dist/Calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { departmentLeft, departmentRight } from "./department";
 import { useSelector } from "react-redux";
 
 export default function Offline(props) {
@@ -43,27 +42,27 @@ export default function Offline(props) {
       );
     } else return null;
   };
-  const showTitle = () => {
-    if (props.status === false) {
-      return (
-        <>
-          <p id="tittle_off">
-            <b>In person Campus Tour-1h</b>
-            <br></br>
-            (Campus Tour Offline + Tour guide)
-          </p>
-          {/* <p>Bạn chỉ được đăng ký lịch trước 1 tuần</p> */}
-        </>
-      );
-    } else
-      return (
-        <p id="tittle_off">
-          <b>Virtual Campus Tour-30p</b>
-          <br></br>
-          (Tour Offline + Tour guide)
-        </p>
-      );
-  };
+  // const showTitle = () => {
+  //   if (props.status === false) {
+  //     return (
+  //       <>
+  //         <p id="tittle_off">
+  //           <b>In person Campus Tour-1h</b>
+  //           <br></br>
+  //           (Campus Tour Offline + Tour guide)
+  //         </p>
+  //         {/* <p>Bạn chỉ được đăng ký lịch trước 1 tuần</p> */}
+  //       </>
+  //     );
+  //   } else
+  //     return (
+  //       <p id="tittle_off">
+  //         <b>Virtual Campus Tour-30p</b>
+  //         <br></br>
+  //         (Tour Offline + Tour guide)
+  //       </p>
+  //     );
+  // };
 
   const pickDay = (date) => {
     if (date?.getDay() === 0) {
@@ -129,7 +128,6 @@ export default function Offline(props) {
   const dataDepartmentLeft = dataDepartment?.slice(7, 13).reverse();
   return (
     <div className="body_off">
-      {showTitle()}
       <p id="note_message1">Hệ thống chỉ hỗ trợ đăng ký trước 01 tuần</p>
       <div className="form_off">
         <div className="form_off_input">

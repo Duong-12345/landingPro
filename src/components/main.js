@@ -4,10 +4,12 @@ import { postDataForm } from "../actions/actionSend";
 import { getProvince, getDistrict } from "../actions/actionGetProvince";
 import "./main.css";
 import Offline from "./Offline";
+import registerCalander from "./registerCalander";
 import { getSchool } from "../actions/actionGetSchool";
 import { getDepartment, getProgram } from "../actions/actionGetDepartment";
 import { Helmet } from "react-helmet";
 import moment from "moment";
+import RegisterCalander from "./registerCalander";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -320,24 +322,28 @@ const Main = () => {
   const toggleModal = () => {
     setModal(!modal);
   };
-
+  const showTitle = () => {
+    if (on.status === false) {
+      return (
+        <>
+          <p id="tittle_off">
+            <b>In person Campus Tour-1h</b>
+            <br></br>
+            (Campus Tour Offline + Tour guide)
+          </p>
+        </>
+      );
+    } else
+      return (
+        <p id="tittle_off">
+          <b>Virtual Campus Tour-30p</b>
+          <br></br>
+          (Tour Offline + Tour guide)
+        </p>
+      );
+  };
   return (
     <div className="background">
-      {/* { modal && (
-        <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content">
-            <h2>Phenikaa xin chào</h2>
-            <p>
-              Bạn đã gửi thông tin thành công. Nhà trường rất mong chờ bạn sẽ đến tham quan trường vào 
-              thời gian bạn đã đăng kí
-            </p>
-            <button  className="close-modal" onClick={toggleModal}>
-              &times;
-            </button>
-          </div>
-        </div>
-      )} */}
       <span className="img_bottom">
         <img
           // src="./img/smt.png"
@@ -407,64 +413,11 @@ const Main = () => {
             trình trải nghiệm "Phenikaa Campus Visit 2022".
           </p>
           <p>
-            Chương trình được hỗ trợ{" "}
+            Chương trình được hỗ trợ
             <b style={{ color: "#f05e22" }}>HOÀN TOÀN MIỄN PHÍ.</b>
           </p>
           <p>Lịch đăng ký thời gian tham quan (dự kiến):</p>
-          <div className="form_register">
-            <div className="left_block">
-              <div className="top_child_left">Offline:</div>
-              <div className="bottom_child_left">
-                <span className="bound_img_p">
-                  <img
-                    // src="./img/clock.png"
-                    src="./img/clock.svg"
-                    alt="logo1"
-                    className="phone_icon"
-                  ></img>
-                  <p>
-                    09:00 buổi sáng/ 15:00 buổi chiều <br></br>Thứ Ba và Thứ Năm
-                    hàng tuần
-                  </p>
-                </span>
-                <span className="bound_img_p">
-                  <img
-                    // src="./img/address.png"
-                    src="./img/address.svg"
-                    alt="logo1"
-                    className="phone_icon"
-                  ></img>
-                  <p>
-                    Phòng Tuyển sinh & truyền thông,<br></br> 103 nhà A2, Trường
-                    Đại học Phenikaa.
-                  </p>
-                </span>
-              </div>
-            </div>
-            <div className="right_block">
-              <div className="top_child_left">Online:</div>
-              <div className="bottom_child_left">
-                <span className="bound_img_p">
-                  <img
-                    // src="./img/clock.png"
-                    src="./img/clock.svg"
-                    alt="logo1"
-                    className="phone_icon"
-                  ></img>
-                  <p>09:00 - 10:00 sáng Chủ Nhật hàng tuần.</p>
-                </span>
-                <span className="bound_img_p">
-                  <img
-                    // src="./img/address.png"
-                    src="./img/address.svg"
-                    alt="logo1"
-                    className="phone_icon"
-                  ></img>
-                  <p>Online trên nền tảng Zoom</p>
-                </span>
-              </div>
-            </div>
-          </div>
+              <RegisterCalander/>
           <p>
             Hãy liên hệ với chúng tôi khi cần hỗ trợ thêm thông tin<br></br>
             <b>Phòng Tuyển sinh và Truyền thông</b>
@@ -652,6 +605,8 @@ const Main = () => {
               Bạn có thể chọn hình thức trải nghiệm online bằng cách chọn ở ô
               phía trên
             </p>
+      {showTitle()}
+
             {/* {submitted && !initSelect.value && (
                     <p id="note_message">Please choose the form you want to experience
                     </p>
