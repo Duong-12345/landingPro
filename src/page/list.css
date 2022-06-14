@@ -1,0 +1,35 @@
+.bound {
+  width: 60%;
+  margin: 50px auto;
+}
+#name,
+#highest,
+#current {
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  margin: 5px;
+}
+#current {
+  color: #0c1f55;
+}
+#name {
+  color: #e94b00;
+}
+#highest {
+  font-size: 7px;
+}
+.card {
+  margin-bottom: 32px;
+  border: none;
+}
+.card-body {
+  padding: 5px 0;
+  background-color: #f9f9f9;
+}
+.col {
+  padding: 0 10px;
+}
+.pagination {
+  display: inline-flex;
+}
